@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import sys
 from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QWidget, QPushButton, QSlider, QCheckBox
-from PyQt6.QtGui import QImage, QPixmap  # ✅ QImage import edildi
+from PyQt6.QtGui import QImage, QPixmap  
 from PyQt6.QtCore import Qt  
 
 class EyeTrackerApp(QMainWindow):
@@ -80,7 +80,7 @@ class EyeTrackerApp(QMainWindow):
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             h, w, ch = frame.shape
             bytes_per_line = ch * w
-            img = QImage(frame.data, w, h, bytes_per_line, QImage.Format.Format_RGB888)  # ✅ Hata düzeltilmiş!
+            img = QImage(frame.data, w, h, bytes_per_line, QImage.Format.Format_RGB888)  
 
             self.video_label.setPixmap(QPixmap.fromImage(img))
 
